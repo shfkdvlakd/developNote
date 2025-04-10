@@ -5,7 +5,7 @@ using System.Linq;
 class Program{
     static void Main(){
         
-        string input = Console.ReadLine().Split(" ");
+        string[] input = Console.ReadLine().Split(" ");
         
         // 수빈(n),동생(k)의 위치
         int n = int.Parse(input[0]);
@@ -44,7 +44,7 @@ class Program{
             // 현재 위치 기준으로 -1,+1,*2 의 값을 루프 하면서 방문 안했으면 방문
             foreach(int next in new int[]{ position-1,position+1,position*2 }){
                 // 방문 안했을 때, 단 수빈이의 위치는 0~10만 사이
-                if(BFSV[next] == 0 && next>=0 && next <= 100000){
+                if( next>=0 && next <= 100000 && BFSV[next] == 0){
                     BFSV[next] = BFSV[position] + 1;
                     q.Enqueue(next);
                 }
